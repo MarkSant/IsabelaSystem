@@ -1,5 +1,8 @@
 package services;
-import entities.*;
+
+import item.Cor;
+import item.Item;
+
 import java.util.*;
 
 
@@ -64,11 +67,11 @@ public class ItemSolicitado
 
 		
 	
-		public Map<Cor, Double> mapConsumoCorArea (ItemSolicitado itemsolicitado) {
+		public Map<Cor, Double> mapConsumoCorArea () {
 			
-				double razaoTamanhos = ((itemsolicitado.getTamanhoSolicitado() - itemsolicitado.getIdItem().getTamanhoPadrao())/itemsolicitado.getIdItem().getTamanhoPadrao());
-				Map<Cor, Double> corTam = itemsolicitado.getIdItem().mapCorAreaPartes(itemsolicitado.getIdItem());
-				List<Cor> cores = itemsolicitado.getIdItem().listaCores(itemsolicitado.getIdItem().getListaPartes());
+				double razaoTamanhos = ((tamanhoSolicitado - idItem.getTamanhoPadrao())/idItem.getTamanhoPadrao());
+				Map<Cor, Double> corTam = idItem.mapCorAreaPartes();
+				List<Cor> cores = idItem.listaCores();
 				for(int i = 0; i < corTam.size(); i++) {
 						double tamSoli = corTam.get(cores.get(i)) + (razaoTamanhos * corTam.get(cores.get(i)));
 						corTam.put(cores.get(i),tamSoli);

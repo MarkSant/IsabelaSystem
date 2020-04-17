@@ -1,6 +1,6 @@
 package services;
 import java.util.*;
-import entities.*;
+import item.Cor;
 
 public class SacolaPedido
 {
@@ -41,8 +41,8 @@ public class SacolaPedido
 
 				Map<Cor,Double> mapCorTamSac = new HashMap<Cor, Double>();
 				for (ItemSolicitado item : listaSacola) {
-						List<Cor> cores = item.getIdItem().listaCores(item.getIdItem().getListaPartes());
-						Map<Cor, Double> mapCorTamItem = item.mapConsumoCorArea(item);
+						List<Cor> cores = item.getIdItem().listaCores();
+						Map<Cor, Double> mapCorTamItem = item.mapConsumoCorArea();
 						for (int i = 0; i < mapCorTamItem.size(); i++) {
 							Double sum = mapCorTamSac.get(cores.get(i)) + mapCorTamItem.get(cores.get(i));
 								mapCorTamSac.put(cores.get(i), sum);

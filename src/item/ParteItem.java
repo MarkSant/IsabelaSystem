@@ -1,6 +1,4 @@
-package services;
-import entities.Item;
-import entities.Cor;
+package item;
 
 public class ParteItem
 {
