@@ -67,16 +67,24 @@ public class ItemSolicitado
 
 		
 	
-		public Map<Cor, Double> mapConsumoCorArea () {
+		public Map<Cor, Double> mapConsumCorAreaSoli () {
 			
-				double razaoTamanhos = ((tamanhoSolicitado - idItem.getTamanhoPadrao())/idItem.getTamanhoPadrao());
-				Map<Cor, Double> corTam = idItem.mapCorAreaPartes();
+				double razaoTamanhos = ((tamanhoSolicitado - idItem.getTamanhoPadrao())/idItem.getTamanhoPadrao())
+			  Map<Cor, Double> mapCorTam = idItem.mapCorAreaPartes();
+				mapCorTam.forEach((k,v) -> {
+						double tamSoli = v + (razaoTamanhos * v);
+						v = tamSoli;
+				}
+				return mapCorTam;
+				
+				/*Map<Cor, Double> corTam = idItem.mapCorAreaPartes();
 				List<Cor> cores = idItem.listaCores();
 				for(int i = 0; i < corTam.size(); i++) {
 						double tamSoli = corTam.get(cores.get(i)) + (razaoTamanhos * corTam.get(cores.get(i)));
 						corTam.put(cores.get(i),tamSoli);
 				}
 				return corTam;
+				*/
 		}
 		
 }

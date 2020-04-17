@@ -37,17 +37,27 @@ public class SacolaPedido
 				return listaSacola;
 		}
 	
-		public Map<Cor, Double> mapConsumoCorArea () {
+		public Map<Cor, Double> mapConsuCorAreaSacola () {
 
 				Map<Cor,Double> mapCorTamSac = new HashMap<Cor, Double>();
 				for (ItemSolicitado item : listaSacola) {
-						List<Cor> cores = item.getIdItem().listaCores();
-						Map<Cor, Double> mapCorTamItem = item.mapConsumoCorArea();
-						for (int i = 0; i < mapCorTamItem.size(); i++) {
+						
+						Map<Cor, Double> mapCorTamItem = item.mapConsumCorAreaSoli();
+					 
+						mapCorTamItem.forEach((k,v) -> {
+								if(!mapCorTamSac.containsKey(k)) {
+										mapCorTamSac.put(k,v);
+								} else {
+								double soma = mapCorTamSac.get(k) + v;
+								mapCorTamSac.put(k, soma);
+								}
+						}
+						
+						/*for (int i = 0; i < mapCorTamItem.size(); i++) {
 							Double sum = mapCorTamSac.get(cores.get(i)) + mapCorTamItem.get(cores.get(i));
 								mapCorTamSac.put(cores.get(i), sum);
 						}
-						
+						*/
 				}
 			return mapCorTamSac;	
 		}
