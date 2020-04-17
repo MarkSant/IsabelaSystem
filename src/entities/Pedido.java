@@ -10,8 +10,9 @@ public class Pedido
 		private Date dataEnvio;
 		private Cliente cliente;
 		private SacolaPedido itens;
+		private TiposCorreio tipoCorreio;
 
-		public Pedido(Integer idPedido, EntregaPedido tipoEntregaPedido, Date dataConttatacao, Date dataEnvio, Cliente cliente, SacolaPedido itens)
+		public Pedido(Integer idPedido, EntregaPedido tipoEntregaPedido, Date dataConttatacao, Date dataEnvio, Cliente cliente, SacolaPedido itens, TiposCorreio tipoCorreios)
 		{
 				this.idPedido = idPedido;
 				this.tipoEntregaPedido = tipoEntregaPedido;
@@ -19,6 +20,7 @@ public class Pedido
 				this.dataEnvio = dataEnvio;
 				this.cliente = cliente;
 				this.itens = itens;
+				this.tipoCorreio = tipoCorreios;
 		}
 	
 		public Pedido(){
