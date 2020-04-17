@@ -5,6 +5,8 @@ public class Cor
 		private Integer idCor;
 		private String nomeCor;
 		private Double precoCM2;
+		private double altChInt,largChInt;
+		private double altChCorte,largChCorte;
 
 		public Cor(Integer idCor, String nomeCor, Double precoCM2)
 		{
@@ -15,6 +17,46 @@ public class Cor
 	
 		public Cor() {
 				
+		}
+
+		public void setAltChInt(double altChInt)
+		{
+				this.altChInt = altChInt;
+		}
+
+		public double getAltChInt()
+		{
+				return altChInt;
+		}
+
+		public void setLargChInt(double largChInt)
+		{
+				this.largChInt = largChInt;
+		}
+
+		public double getLargChInt()
+		{
+				return largChInt;
+		}
+
+		public void setAltChCorte(double altChCorte)
+		{
+				this.altChCorte = altChCorte;
+		}
+
+		public double getAltChCorte()
+		{
+				return altChCorte;
+		}
+
+		public void setLargChCorte(double largChCorte)
+		{
+				this.largChCorte = largChCorte;
+		}
+
+		public double getLargChCorte()
+		{
+				return largChCorte;
 		}
 
 		public void setIdCor(Integer idCor)
@@ -47,7 +89,7 @@ public class Cor
 				return precoCM2;
 		}
 	
-		public Double precoCm2(Double altChapa, Double largChapa,Double precoChapa) {
-				return (altChapa * largChapa)/precoChapa;
+		public Double precoCm2(Double precoChapa) {
+				return (altChInt * largChInt)/precoChapa;
 		}
 }
